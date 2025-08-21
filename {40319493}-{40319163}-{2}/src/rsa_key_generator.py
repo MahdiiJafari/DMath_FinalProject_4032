@@ -1,5 +1,6 @@
 import random
 
+
 class SecureRSAKeyGenerator:
     def __init__(self, bits=2048):
         self.bits = bits
@@ -82,3 +83,19 @@ class SecureRSAKeyGenerator:
             'q': q,
             'phi': phi
         }
+
+    def secure_encrypt(self, message, public_key):
+        e, n = public_key
+        utf8_bytes = message.encode('utf-8')
+        number = int.from_bytes(utf8_bytes, "big")
+
+        return pow(number, e, n)
+
+    def secure_decrypt(self, ciphertext, private_key):
+        d, n = private_key
+        message = pow(ciphertext, d, n)
+
+        byte_length = (message.bit_length() + 7) // 8
+        message_bytes = message.to_bytes(byte_length, "big")
+
+        return message_bytes.decode('utf-8')
