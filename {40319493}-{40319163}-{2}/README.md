@@ -119,4 +119,9 @@ The Extended Euclidean Algorithm finds integers `x` and `y` such that `ax + by =
         - Update `x` and `y`: `temp = x`, `x = last_x - q * x`, `last_x = temp` (similarly for y).
             
     3. When `b = 0`, `a` is the GCD, and `last_x`, `last_y` are the coefficients.
+## Sources
+[RSA Algorithm in Cryptography](https://www.geeksforgeeks.org/computer-networks/rsa-algorithm-cryptography/)
+[Extended Euclidean Algorithm](https://cp-algorithms.com/algebra/extended-euclid-algorithm.html#extended-euclidean-algorithm "Permanent link")
+[Primality Test](https://www.geeksforgeeks.org/dsa/primality-test-set-3-miller-rabin/)
+
 
